@@ -30,6 +30,7 @@ function capture(video, scaleFactor) {
  * Invokes the <code>capture</code> function and attaches the canvas element to the DOM.
  */
 function shoot(){
+  var scaleFactor = 0.5;
   var video  = document.getElementById(videoId);
   var output = document.getElementById('output');
   var canvas = capture(video, scaleFactor);
@@ -39,7 +40,7 @@ function shoot(){
   snapshots.unshift(canvas);
 
   // move this later
-  addText("Hello, world", canvas);
+  addText("HELLO...", canvas);
 
   output.innerHTML = '';
   for(var i=0; i<4; i++){
@@ -50,8 +51,11 @@ function shoot(){
 function addText(text, canvas) {
   context = canvas.getContext('2d');
   context.fillStyle = "white";
-  context.font = "bold 20px Arial";
-  context.fillText(text, 20, 100);
+  context.lineWidth = 4;
+  context.strokeStyle = "black";
+  context.font = "bold 40px Arial";
+  context.strokeText(text, 100, 200);
+  context.fillText(text, 100, 200);
 }
 
 // function createGif(false, imageData) {
