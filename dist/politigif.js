@@ -12,33 +12,66 @@ var snapshots = [];
  *
  * @return {Canvas}
  */
-function capture (video, scaleFactor) {
-    if(scaleFactor == null){
-        scaleFactor = 1;
-    }
-    var w = video.videoWidth * scaleFactor;
-    var h = video.videoHeight * scaleFactor;
-    var canvas = document.createElement('canvas');
-        canvas.width  = w;
-        canvas.height = h;
-    var ctx = canvas.getContext('2d');
-        ctx.drawImage(video, 0, 0, w, h);
-    return canvas;
+function capture(video, scaleFactor) {
+  if(scaleFactor == null){
+      scaleFactor = 1;
+  }
+  var w = video.videoWidth * scaleFactor;
+  var h = video.videoHeight * scaleFactor;
+  var canvas = document.createElement('canvas');
+      canvas.width  = w;
+      canvas.height = h;
+  var ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, w, h);
+  return canvas;
 } 
- 
+
 /**
  * Invokes the <code>capture</code> function and attaches the canvas element to the DOM.
  */
-function shoot (){
-    var video  = document.getElementById(videoId);
-    var output = document.getElementById('output');
-    var canvas = capture(video, scaleFactor);
-        canvas.onclick = function(){
-            window.open(this.toDataURL());
-        };
-    snapshots.unshift(canvas);
-    output.innerHTML = '';
-    for(var i=0; i<4; i++){
-        output.appendChild(snapshots[i]);
-    }
+function shoot(){
+  var video  = document.getElementById(videoId);
+  var output = document.getElementById('output');
+  var canvas = capture(video, scaleFactor);
+      canvas.onclick = function(){
+          window.open(this.toDataURL());
+      };
+  snapshots.unshift(canvas);
+
+  // move this later
+  addText("Hello, world", canvas);
+
+  output.innerHTML = '';
+  for(var i=0; i<4; i++){
+      output.appendChild(snapshots[i]);
+  }
+}
+
+function addText(text, canvas) {
+  context = canvas.getContext('2d');
+  context.fillStyle = "white";
+  context.font = "bold 20px Arial";
+  context.fillText(text, 20, 100);
+}
+
+// function createGif(false, imageData) {
+function createGif(context) {
+
+  var encoder = new GIFEncoder();
+
+  encoder.setRepeat(0); //0  -> loop forever
+                        //1+ -> loop n times then stop
+  encoder.setDelay(100); //go to next frame every n milliseconds
+
+  encoder.start();
+
+  // repeat this part. Adapt to accept imageData, as above
+  encoder.addFrame(context);
+
+  encoder.finish();
+  var binary_gif = encoder.stream().getData() //notice this is different from the as3gif package!
+  var data_url = 'data:image/gif;base64,'+encode64(binary_gif);
+
+  return data_url
+
 }

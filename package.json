@@ -1,0 +1,22 @@
+{ 
+  "name": "politigif",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jywarren/politigif.git"
+  },
+  "keywords": [
+    "gifs"
+  ],
+  "author": "Jeff Warren",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jywarren/politigif/issues"
+  },
+  "homepage": "https://github.com/jywarren/politigif",
+  "dependencies": {
+    "jsgif": "git+https://github.com/antimatter15/jsgif.git"
+  "devDependencies": {
+  }
+}
