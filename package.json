@@ -16,7 +16,8 @@
   },
   "homepage": "https://github.com/jywarren/politigif",
   "dependencies": {
-    "jsgif": "git+https://github.com/antimatter15/jsgif.git"
+    "jsgif": "git://github.com/AlicanC/jsgif.git#1.0.0-alpha.2"
+  },
   "devDependencies": {
   }
 }

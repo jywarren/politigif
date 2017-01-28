@@ -8,27 +8,50 @@
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
   <!-- jsgif: -->
-  <script type="text/javascript" src="LZWEncoder.js"></script>
-  <script type="text/javascript" src="NeuQuant.js"></script>
-  <script type="text/javascript" src="GIFEncoder.js"></script>
-  <script type="text/javascript" src="b64.js"></script>
+  <script type="text/javascript" src="node_modules/jsgif/dist/bundle/GifEncoder.js"></script>
+
+  <!-- submodules -->
+  <script src="src/videoToCanvas.js"></script>
+  <script src="src/overlayText.js"></script>
+  <script src="src/createGif.js"></script>
 
   <script src="dist/politigif.js"></script>
-  
   <link href="dist/politigif.css" rel="stylesheet">
 
 </head>
 <body>
 
   <div style="border: solid 1px #ccc; padding: 10px; text-align: center;">
-    <video id="video" width="320" controls="true">
-        <source src="video.ogv"><!-- FireFox 3.5 -->
+    <video id="video" controls="true">
+      <!-- alternative video formats: <source src="video.ogv"> --><!-- FireFox 3.5 -->
+      <!--
         <source src="https://ia800500.us.archive.org/31/items/CSPAN_20090617_150000/CSPAN_20090617_150000.mp4?start=0&end=60&ignore=x.mp4"><!-- WebKit -->
-        Your browser does not support HTML5 video tag. Please download FireFox 3.5 or higher.
+        https://archive.org/download/CSPAN_20170125_154100_Nancy_Pelosi_Calls_Voter_Fraud_Investigation_Really_Strange/format=h.264
+      -->
+      <source src="https://ia800500.us.archive.org/31/items/CSPAN_20170125_154100_Nancy_Pelosi_Calls_Voter_Fraud_Investigation_Really_Strange/CSPAN_20170125_154100_Nancy_Pelosi_Calls_Voter_Fraud_Investigation_Really_Strange.mp4?start=0&end=60&ignore=x.mp4"><!-- WebKit -->
+      Your browser does not support HTML5 video tag. Please download FireFox 3.5 or higher.
     </video><br/>
-    <button onclick="shoot()" style="padding:10px;border: solid 2px #ccc;">Capture</button><br/>
+    <button id="capture" style="padding:10px;border: solid 2px #ccc;">Capture</button><br/>
     <div id="output" style="display: inline-block; top: 4px; position: relative ;border: dotted 1px #ccc; padding: 2px;"></div>
   </div>
+
+  <script>
+    (function() {
+
+      var politiGif = new PolitiGif(); // initialize
+
+      document.getElementById('capture').onclick = function onCapture() {
+
+        politiGif.capture({
+          // text: 'BOOM',
+          // start: 0,
+          // end: 4500 // milliseconds?
+        });
+
+      }
+
+    })();
+  </script>
 
 </body>
 </html>
