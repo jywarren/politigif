@@ -1,8 +1,4 @@
-
-
-
-
-
+# PolitiGif
 
 ### Architecture
 
@@ -15,7 +11,13 @@
 5. [x] Write function to overlay text on images
 6. [x] Write function to compile into GIF (https://github.com/antimatter15/jsgif)
 
+### To do
 
+1. `timeRangeFromText(text, identifier | video)` to get exact times from the transcript
+2. `textFromTimeRange(begin, end, identifier | video)` to get string of whole words from given time range
+3. `getMetadataFromIdentifier()`
+4. `getImageFromIdentifier()`
+5. `getWholeTranscript(identifier | video)` 
 
 ### Video samples
 
