@@ -19,6 +19,11 @@ PolitiGif = function politiGif() {
     canvas.onclick = function(){
       window.open(this.toDataURL());
     };
+    var md = getMetadataFromIdentifier("WUSA_20141123_113000_McLaughlin_Group","",
+      function(metadata){
+        console.log(metadata.transcript[3]);
+      });
+
 
     overlayText("HELLO...", canvas, {});
 
