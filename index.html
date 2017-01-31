@@ -29,6 +29,7 @@
   <h1><span style="color:#35a;">Politi</span><span style="color:#c44;">Gif</span></h1>
 
   <div style="border: solid 1px #ccc; padding: 10px; text-align: center;">
+    <!-- <video id="video" controls="true" crossorigin="use-credentials"> for CORS video -->
     <video id="video" controls="true">
       <!-- alternative video formats: <source src="video.ogv"> --><!-- FireFox 3.5 -->
       <!--
@@ -39,8 +40,11 @@
       Your browser does not support HTML5 video tag. Please download FireFox 3.5 or higher.
     </video><br/>
 
-    <button class="btn btn-lg btn-primary" id="capture">Capture</button><br/>
+    <button class="btn btn-lg btn-primary" id="capture">Capture</button>
+    <button class="btn btn-lg btn-primary gif">Make Gif</button><br/>
+
     <div id="output" style="display: inline-block; top: 4px; position: relative ;border: dotted 1px #ccc; padding: 2px;"></div>
+
   </div>
 
   <script>
@@ -59,6 +63,14 @@
         });
 
       }
+
+      $('.gif').click(function() {
+        politiGif.capture();
+        politiGif.capture();
+        politiGif.capture();
+        var url = createGif($('canvas').toArray());
+        window.open(url);
+      });
 
     })();
   </script>
