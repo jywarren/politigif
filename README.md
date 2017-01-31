@@ -2,7 +2,7 @@
 
 ### Architecture
 
-0. [x] find transcript for a given IA video
+0. [x] find transcript for a given IA vide o
 1. [x] Find a video URL and associated transcript
 2. Identify a time range, either for the request URL (`?start=0&end=60`) or by advancing the video element via JavaScript
   * https://github.com/rwaldron/popcorn.capture can jump around tersely
@@ -17,13 +17,13 @@
 2. `textFromTimeRange(begin, end, identifier | video)` to get string of whole words from given time range
 3. `getMetadataFromIdentifier()`
 4. `getImageFromIdentifier()`
-5. `getWholeTranscript(identifier | video)` 
+5. `getWholeTranscript(identifier | video)`
 
 ### Video samples
 
 Archive.org `unique_id`s can be fetched from the RSS feeds like this:
 
-CSPAN date-sorted video listing: 
+CSPAN date-sorted video listing:
 
 https://archive.org/advancedsearch.php?q=cspan&fl%5B%5D=date&fl%5B%5D=description&fl%5B%5D=downloads&fl%5B%5D=identifier&fl%5B%5D=mediatype&fl%5B%5D=source&fl%5B%5D=subject&fl%5B%5D=title&sort%5B%5D=date+desc&sort%5B%5D=&sort%5B%5D=&rows=50&page=1&output=json&callback=callback&save=yes#raw
 
@@ -34,7 +34,7 @@ Feeds:
 * https://archive.org/services/collection-rss.php?collection=TV-CSPAN
 * Video link examples: https://archive.org/download/CSPAN_20170125_154100_Nancy_Pelosi_Calls_Voter_Fraud_Investigation_Really_Strange/format=h.264
 
-We can base everything off the unique identifier. Much metadata can be found with: 
+We can base everything off the unique identifier. Much metadata can be found with:
 
 `https://archive.org/metadata/<unique_id>`
 
@@ -45,7 +45,7 @@ Including:
 * various download formats
 * appropriate servers to use - "server"
 
-i.e. 
+i.e.
 
 ```js
 $.get('https://archive.org/metadata/WUSA_20141123_113000_McLaughlin_Group/',function(response) { console.log(response.
@@ -79,5 +79,3 @@ http://enable-cors.org/
 ### Misc
 
 Alternative (streaming) gif encoder: https://www.npmjs.com/package/gif-encoder
-
-
