@@ -2,7 +2,7 @@
 
 ### Architecture
 
-0. [x] find transcript for a given IA vide o
+0. [x] find transcript for a given IA video
 1. [x] Find a video URL and associated transcript
 2. Identify a time range, either for the request URL (`?start=0&end=60`) or by advancing the video element via JavaScript
   * https://github.com/rwaldron/popcorn.capture can jump around tersely
