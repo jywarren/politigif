@@ -6,6 +6,9 @@
   <title>PolitiGif</title>
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://use.fontawesome.com/38cd4f8783.js"></script>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- jsgif: -->
   <script type="text/javascript" src="node_modules/jsgif/dist/bundle/GifEncoder.js"></script>
@@ -21,6 +24,8 @@
 </head>
 <body>
 
+  <h1><span style="color:#35a;">Politi</span><span style="color:#c44;">Gif</span></h1>
+
   <div style="border: solid 1px #ccc; padding: 10px; text-align: center;">
     <video id="video" controls="true">
       <!-- alternative video formats: <source src="video.ogv"> --><!-- FireFox 3.5 -->
@@ -31,7 +36,8 @@
       <source src="https://ia800500.us.archive.org/31/items/CSPAN_20170125_154100_Nancy_Pelosi_Calls_Voter_Fraud_Investigation_Really_Strange/CSPAN_20170125_154100_Nancy_Pelosi_Calls_Voter_Fraud_Investigation_Really_Strange.mp4?start=0&end=60&ignore=x.mp4"><!-- WebKit -->
       Your browser does not support HTML5 video tag. Please download FireFox 3.5 or higher.
     </video><br/>
-    <button id="capture" style="padding:10px;border: solid 2px #ccc;">Capture</button><br/>
+
+    <button class="btn btn-lg btn-primary" id="capture">Capture</button><br/>
     <div id="output" style="display: inline-block; top: 4px; position: relative ;border: dotted 1px #ccc; padding: 2px;"></div>
   </div>
 
